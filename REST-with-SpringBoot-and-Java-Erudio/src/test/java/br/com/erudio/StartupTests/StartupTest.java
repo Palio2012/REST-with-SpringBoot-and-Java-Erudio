@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class StartupTest {
 
     public static void main(String[] args) {
-        SpringApplication.run(br.com.erudio.application.Startup.class, args);
+        SpringApplication.run(br.com.erudio.Startup.class, args);
     }
 
 }
