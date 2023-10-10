@@ -2,7 +2,7 @@ package br.com.erudio.model.data.vo.v1;
 
 import java.io.Serializable;
 
-public class PersonVO implements Serializable {
+public class PersonVOV1 implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -12,7 +12,7 @@ public class PersonVO implements Serializable {
 	private String address;
 	private String gender;
 	
-	public PersonVO() {}
+	public PersonVOV1() {}
 
 	public Long getId() {
 		return id;
@@ -74,7 +74,7 @@ public class PersonVO implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PersonVO other = (PersonVO) obj;
+		PersonVOV1 other = (PersonVOV1) obj;
 		if (address == null) {
 			if (other.address != null)
 				return false;
