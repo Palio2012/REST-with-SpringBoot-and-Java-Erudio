@@ -2,8 +2,7 @@ package br.com.erudio.model.controllers;
 
 import java.util.List;
 
-import br.com.erudio.model.data.vo.v1.PersonVOV1;
-import br.com.erudio.model.data.vo.v2.PersonVOV2;
+import br.com.erudio.model.entities.Person;
 import br.com.erudio.model.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,37 +19,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/person/v1")
 public class PersonController {
 	
 	@Autowired
 	private PersonServices service;
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<PersonVOV1> findAll() {
+	public List<Person> findAll() {
 		return service.findAll();
 	}
 	
 	@GetMapping(value = "/{id}",
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVOV1 findById(@PathVariable(value = "id") Long id) {
+	public Person findById(@PathVariable(value = "id") Long id) {
 		return service.findById(id);
 	}
 	
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVOV1 create(@RequestBody PersonVOV1 person) {
+	public Person create(@RequestBody Person person) {
 		return service.create(person);
 	}
-	@PostMapping(value = "/v2",consumes = MediaType.APPLICATION_JSON_VALUE,
-			produces = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVOV2 createV2(@RequestBody PersonVOV2 person) {
-		return service.createV2(person);
-	}
-	
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public PersonVOV1 update(@RequestBody PersonVOV1 person) {
+	public Person update(@RequestBody Person person) {
 		return service.update(person);
 	}
 	
